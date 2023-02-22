@@ -1,0 +1,87 @@
+[gd_scene load_steps=6 format=3 uid="uid://cmhihghydwqfq"]
+
+[ext_resource type="Script" path="res://player/scripts/player_debug.gd" id="1_285bl"]
+
+[sub_resource type="SystemFont" id="SystemFont_c37us"]
+font_names = PackedStringArray("Monospace")
+font_style = 1
+hinting = 2
+subpixel_positioning = 0
+multichannel_signed_distance_field = true
+
+[sub_resource type="Theme" id="Theme_fpgkr"]
+resource_name = "DebugPanel"
+Label/colors/font_color = Color(1, 0, 0.0823529, 1)
+Label/font_sizes/font_size = 16
+Label/fonts/font = SubResource("SystemFont_c37us")
+
+[sub_resource type="Theme" id="Theme_htm8x"]
+Label/font_sizes/font_size = 14
+Label/fonts/font = null
+
+[sub_resource type="Theme" id="Theme_di2r3"]
+Label/font_sizes/font_size = 10
+
+[node name="DebugPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = SubResource("Theme_fpgkr")
+script = ExtResource("1_285bl")
+
+[node name="PanelContainer" type="VBoxContainer" parent="."]
+offset_right = 240.0
+offset_bottom = 664.0
+metadata/_edit_use_anchors_ = true
+
+[node name="ActiveLabel" type="Label" parent="PanelContainer"]
+offset_right = 240.0
+offset_bottom = 22.0
+text = "Player DebugPanel Active"
+uppercase = true
+
+[node name="ControlContainer" type="VBoxContainer" parent="PanelContainer"]
+offset_top = 26.0
+offset_right = 1.0
+offset_bottom = 79.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+auto_translate = false
+
+[node name="IsGroundedLabel" type="Label" parent="PanelContainer/ControlContainer"]
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = 14.9688
+theme = SubResource("Theme_htm8x")
+
+[node name="PlayerVelocityLabel" type="Label" parent="PanelContainer/ControlContainer"]
+offset_top = 18.0
+offset_right = 1.0
+offset_bottom = 33.9688
+theme = SubResource("Theme_htm8x")
+
+[node name="LinearVelocityLabel" type="Label" parent="PanelContainer/ControlContainer"]
+offset_top = 37.0
+offset_right = 1.0
+offset_bottom = 52.9688
+theme = SubResource("Theme_htm8x")
+
+[node name="MessageQueueScrollContainer" type="ScrollContainer" parent="PanelContainer"]
+clip_contents = false
+custom_minimum_size = Vector2i(0, 600)
+offset_top = 83.0
+offset_right = 240.0
+offset_bottom = 683.0
+size_flags_vertical = 0
+mouse_filter = 2
+theme = SubResource("Theme_di2r3")
+follow_focus = true
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="MessageQueueContainer" type="VBoxContainer" parent="PanelContainer/MessageQueueScrollContainer"]
+auto_translate = false

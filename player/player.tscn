@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0pxl1edcst8n"]
+
+[ext_resource type="Script" path="res://player/scripts/player.gd" id="1_s4pn6"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_doga2"]
+
+[sub_resource type="Environment" id="Environment_pkg1j"]
+sdfgi_enabled = true
+sdfgi_cascades = 8
+sdfgi_min_cell_size = 0.01
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pn50r"]
+
+[node name="player_body" type="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+mass = 80.0
+physics_material_override = SubResource("PhysicsMaterial_doga2")
+script = ExtResource("1_s4pn6")
+
+[node name="player_head" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.5, 0)
+
+[node name="player_camera" type="Camera3D" parent="player_head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+environment = SubResource("Environment_pkg1j")
+doppler_tracking = 2
+fov = 80.0
+
+[node name="player_look" type="RayCast3D" parent="player_head/player_camera"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+target_position = Vector3(0, 0, 20)
+
+[node name="player_head_mesh_debug" type="CSGSphere3D" parent="player_head"]
+gi_mode = 0
+
+[node name="player_body_collider" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_pn50r")
+
+[node name="player_body_mesh_debug" type="CSGSphere3D" parent="."]
+gi_mode = 0

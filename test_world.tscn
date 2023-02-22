@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://cow2ia64o7ggp"]
+
+[ext_resource type="PackedScene" path="res://player/player.tscn" id="1_q4m57"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bsc0q"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8twtx"]
+
+[node name="test_world" type="Node3D"]
+
+[node name="test_sphere" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.54302, 4.95399)
+
+[node name="test_player" parent="." instance=ExtResource("1_q4m57")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+
+[node name="test_world_floor" type="StaticBody3D" parent="."]
+transform = Transform3D(10000, 0, 0, 0, 1, 0, 0, 0, 10000, 0, 0, 0)
+physics_material_override = SubResource("PhysicsMaterial_bsc0q")
+
+[node name="test_world_floor_collider" type="CollisionShape3D" parent="test_world_floor"]
+transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0)
+shape = SubResource("BoxShape3D_8twtx")
+
+[node name="test_world_floor_mesh" type="CSGBox3D" parent="test_world_floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.16403, 0)
+gi_mode = 2
+
+[node name="test_world_light" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.253758, 0.967268, 0, -0.967268, -0.253758, 0, 69.7356, 0)
+shadow_enabled = true
+
+[node name="test_world_camera" type="Camera3D" parent="."]
+transform = Transform3D(-0.0471064, 0.523404, -0.850782, 0, 0.851727, 0.523986, 0.99889, 0.0246831, -0.0401218, -93.1217, 64.9014, 0)
+
+[node name="OmniLight3d" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.32384, 0)
+light_color = Color(0.6, 0.396078, 1, 1)
+light_energy = 16.0
+light_indirect_energy = 12.229
+shadow_enabled = true
