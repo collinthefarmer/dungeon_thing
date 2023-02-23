@@ -9,40 +9,35 @@
 config_version=5
 
 _global_script_classes=[{
-"base": "Node",
+"base": "Node3D",
 "class": &"Entity",
 "language": &"GDScript",
-"path": "res://entity/entity.gd"
+"path": "res://entity/entity/scripts/entity.gd"
 }, {
 "base": "RigidBody3D",
 "class": &"EntityBody",
 "language": &"GDScript",
-"path": "res://entity/entity_body.gd"
+"path": "res://entity/entity/scripts/entity_body.gd"
 }, {
 "base": "Node",
 "class": &"EntityController",
 "language": &"GDScript",
-"path": "res://entity/entity_controller.gd"
-}, {
-"base": "RefCounted",
-"class": &"EntityMoveIntegrator",
-"language": &"GDScript",
-"path": "res://entity/entity_move_integrator.gd"
+"path": "res://entity/entity/scripts/entity_controller.gd"
 }, {
 "base": "Entity",
 "class": &"Player",
 "language": &"GDScript",
-"path": "res://entity/player/player.gd"
+"path": "res://entity/player/scripts/player.gd"
 }, {
 "base": "EntityBody",
 "class": &"PlayerBody",
 "language": &"GDScript",
-"path": "res://entity/player/player_body.gd"
+"path": "res://entity/player/scripts/player_body.gd"
 }, {
 "base": "EntityController",
 "class": &"PlayerController",
 "language": &"GDScript",
-"path": "res://entity/player/player_controller.gd"
+"path": "res://entity/player/scripts/player_controller.gd"
 }, {
 "base": "Control",
 "class": &"PlayerDebugPanel",
@@ -58,7 +53,6 @@ _global_script_class_icons={
 "Entity": "",
 "EntityBody": "",
 "EntityController": "",
-"EntityMoveIntegrator": "",
 "Player": "",
 "PlayerBody": "",
 "PlayerController": "",
