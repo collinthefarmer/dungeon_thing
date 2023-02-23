@@ -9,6 +9,11 @@
 config_version=5
 
 _global_script_classes=[{
+"base": "Node",
+"class": &"Entity",
+"language": &"GDScript",
+"path": "res://entity/entity.gd"
+}, {
 "base": "RigidBody3D",
 "class": &"EntityBody",
 "language": &"GDScript",
@@ -19,20 +24,25 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://entity/entity_controller.gd"
 }, {
-"base": "RigidBody3D",
+"base": "RefCounted",
+"class": &"EntityMoveIntegrator",
+"language": &"GDScript",
+"path": "res://entity/entity_move_integrator.gd"
+}, {
+"base": "Entity",
 "class": &"Player",
 "language": &"GDScript",
-"path": "res://player/scripts/player.gd"
+"path": "res://entity/player/player.gd"
 }, {
-"base": "RigidBody3D",
+"base": "EntityBody",
 "class": &"PlayerBody",
 "language": &"GDScript",
-"path": "res://player/scripts/player_body.gd"
+"path": "res://entity/player/player_body.gd"
 }, {
-"base": "Node",
+"base": "EntityController",
 "class": &"PlayerController",
 "language": &"GDScript",
-"path": "res://player/scripts/player_controller.gd"
+"path": "res://entity/player/player_controller.gd"
 }, {
 "base": "Control",
 "class": &"PlayerDebugPanel",
@@ -45,8 +55,10 @@ _global_script_classes=[{
 "path": "res://util/queue.gd"
 }]
 _global_script_class_icons={
+"Entity": "",
 "EntityBody": "",
 "EntityController": "",
+"EntityMoveIntegrator": "",
 "Player": "",
 "PlayerBody": "",
 "PlayerController": "",
@@ -65,6 +77,10 @@ config/icon="res://icon.svg"
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
+
+[editor_plugins]
+
+enabled=PackedStringArray()
 
 [input]
 

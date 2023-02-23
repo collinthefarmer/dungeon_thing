@@ -1,6 +1,6 @@
 extends RigidBody3D
 
-class_name PlayerBody
+# class_name PlayerBody
 
 
 signal move_commands(vec: Vector3, rel_impulse_str: float)

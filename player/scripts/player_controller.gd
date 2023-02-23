@@ -1,6 +1,6 @@
 extends Node
 
-class_name PlayerController
+# class_name PlayerController
 
 var player: Player
 

@@ -1,6 +1,6 @@
 extends RigidBody3D
 
-class_name Player
+# class_name Player
 
 var controller: PlayerController
 var debugpanel: PlayerDebugPanel

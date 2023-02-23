@@ -40,9 +40,4 @@ func reduce(f: Callable, default):
     for cur in itr:
         acc = f.call(acc, cur)
 
-    self.empty()
     return acc
-
-
-
-

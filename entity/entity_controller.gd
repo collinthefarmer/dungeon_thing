@@ -18,23 +18,23 @@ func turn(dir: Vector3):
     self.turn_queue.push(dir)
 
 
-func _process(delta):
+func _process(_delta):
     if self.move_queue.has_elements(): self._emit_move()
     if self.turn_queue.has_elements(): self._emit_turn()
 
 
-
 func _emit_move():
-    var move = self.move_queue.reduce(self._coalesce, Vector3.ZERO)
-    self.moves.emit(move)
+    var move: Vector3 = self.move_queue.reduce(self._coalesce, Vector3.ZERO)
+    self.move_queue.empty()
+
+    self.moves.emit(move.normalized())
 
 
-func _push_turn():
-    if self.turn_queue.has_elements():
-        var turn = self.turn_queue.elements.back()
-        self.turn_queue.empty()
+func _emit_turn():
+    var turn: Vector3 = self.turn_queue.elements.back()
+    self.turn_queue.empty()
 
-        self.turns.emit(turn)
+    self.turns.emit(turn.normalized())
 
 
 # ignore previous values if they're very different (cleans up movement reqs.)

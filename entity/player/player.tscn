@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://d36amxu88ji62"]
+
+[ext_resource type="Script" path="res://entity/player/player.gd" id="1_o210h"]
+[ext_resource type="Script" path="res://entity/player/player_controller.gd" id="2_q6iuk"]
+[ext_resource type="Script" path="res://entity/player/player_body.gd" id="3_deadc"]
+
+[node name="player" type="Node3D"]
+script = ExtResource("1_o210h")
+
+[node name="controller" type="Node" parent="."]
+script = ExtResource("2_q6iuk")
+
+[node name="body" type="RigidBody3D" parent="."]
+script = ExtResource("3_deadc")

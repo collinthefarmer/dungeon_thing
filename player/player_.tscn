@@ -18,6 +18,13 @@ axis_lock_angular_z = true
 mass = 80.0
 physics_material_override = SubResource("PhysicsMaterial_doga2")
 script = ExtResource("1_s4pn6")
+player_moveforce_multiplier = null
+player_moveforce_air_factor = null
+player_jumpforce_multiplier = null
+player_max_vel_mag = null
+player_use_debugpanel = null
+player_velocity_threshold = null
+is_grounded_radius = null
 
 [node name="player_head" type="Node3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.5, 0)
